@@ -8,20 +8,13 @@ def func(x,y):
 
 x0=1
 y0=4
-start=1e-4
+start=1e-7
 stop=1e-1
 length=10
 xcordinate=np.geomspace(start, stop,length)
 dp=np.zeros((length,length))
 
-i=0
-j=0
-for h1 in xcordinate:
-    j=0
-    for h2 in xcordinate:
+for i,h1 in enumerate(xcordinate):
+    for j,h2 in enumerate(xcordinate):
         dp[i,j]=(func(x0+h1, y0+h2)-func(x0+h1, y0-h2)-func(x0-h1, y0+h2)+func(x0-h1, y0-h2))/(4*h1*h2)
-        j+=1
-    i+=1
-
-    
 
